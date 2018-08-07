@@ -15,7 +15,9 @@
 
     if ($.inArray(format.val(), optionValues) !== -1) {
       $('#distribution_format').parent().hide();
-      $("#media_type_select").val(mediaType.val());
+      $("#media_type_select option")
+        .filter(function(){  return $(this).html() == format })
+        .attr('selected', true)
       $('#distribution_format').val(format.val());
       $('#distribution_media_type').val(mediaType.val());
     } else {

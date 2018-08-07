@@ -82,6 +82,7 @@ class OpeningPlanDatasetGenerator
       distribution.description = "Plan de Apertura Institucional de #{@inventory.organization.title}"
       distribution.download_url = organization_inventory_url(@inventory.organization, format: :csv).to_s
       distribution.media_type = 'csv'
+      distribution.format = 'csv'
       distribution.publish_date = DateTime.new(2015, 8, 28)
       distribution.temporal = build_temporal(dataset.modified)
       distribution.modified = dataset.modified

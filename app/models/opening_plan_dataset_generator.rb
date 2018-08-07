@@ -42,7 +42,7 @@ class OpeningPlanDatasetGenerator
   def create_dataset_and_distribution
     dataset = build_dataset
     build_distribution(dataset)
-    build_sector(dataset) if @inventory.organization.sectors.present?
+    build_sector(dataset)
     dataset.save
   end
 
@@ -68,7 +68,7 @@ class OpeningPlanDatasetGenerator
 
   def build_sector(dataset)
     dataset.build_dataset_sector do |dataset_sector|
-      dataset_sector.sector_id = @inventory.organization.sectors.first.id
+      dataset_sector.sector_id = Sector.find_by(slug: 'otros').id
     end
   end
 
